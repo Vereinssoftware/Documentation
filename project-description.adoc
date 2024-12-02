@@ -1,0 +1,39 @@
+= Vereinssoftware
+
+Die Vereinssoftware ist eine benutzerfreundliche Anwendung, die es Vereinen ermöglicht, ihre Verwaltung effizient zu organisieren. Sie bietet wesentliche Funktionen zur Verwaltung von Finanzen, Inventar und Mitgliedern. Die Software ist in einem modernen Full-Stack-Ansatz aufgebaut und nutzt Express im Backend, React im Frontend und PostgreSQL als Datenbank.
+
+== Funktionen
+
+=== Eingabe- und Ausgabenrechnung
+Die Software ermöglicht die einfache Erfassung von Einnahmen und Ausgaben, die automatisch in einer übersichtlichen Buchhaltung zusammengefasst werden. So können Vereinsverantwortliche jederzeit die finanzielle Lage des Vereins einsehen.
+
+=== Rechnungen hochladen
+Es ist möglich, Rechnungen im PDF-Format hochzuladen und mit den entsprechenden Einnahmen oder Ausgaben zu verknüpfen. Dies erleichtert die Dokumentation und Nachverfolgung von finanziellen Transaktionen und sorgt für eine vollständige Buchhaltung.
+
+=== Inventarverwaltung
+Vereinsmitglieder können Artikel und Geräte des Vereins in einer Inventarliste verwalten. Die Software ermöglicht es, Bestände zu erfassen, zu aktualisieren und zu überwachen, was den Überblick über Vereinsressourcen erleichtert.
+
+=== Mitgliederverwaltung
+Die Mitgliederverwaltung ermöglicht das Hinzufügen, Bearbeiten und Löschen von Mitgliedern. Ein besonderes Feature ist die Möglichkeit, benutzerdefinierte Tags für jedes Mitglied zu erstellen, um spezifische Eigenschaften oder Zugehörigkeiten (z. B. Aktivstatus, Aufgabenbereich) zu kennzeichnen.
+
+== Architektur
+
+=== Backend
+Das Backend basiert auf Express, einem minimalistischen Webframework für Node.js, und ist dafür verantwortlich, die Geschäftslogik der Anwendung zu steuern und die Kommunikation mit der PostgreSQL-Datenbank zu ermöglichen.
+
+=== Frontend
+Das Frontend ist mit React entwickelt und sorgt für eine interaktive und reaktive Benutzeroberfläche. Die Benutzer können intuitiv mit den verschiedenen Modulen der Software interagieren, wie zum Beispiel der Eingabe von Ausgaben, der Verwaltung von Mitgliedern oder der Pflege des Inventars.
+
+=== Datenbank
+Die Daten werden in einer PostgreSQL-Datenbank gespeichert, die eine robuste und skalierbare Lösung für die Speicherung von Informationen zu Mitgliedern, Finanzdaten und Inventar bietet.
+
+== Zielgruppe
+Die Software richtet sich an Vereinsvorstände und Administratoren, die eine effiziente und einfach zu bedienende Lösung zur Verwaltung ihrer Vereinsressourcen und Finanzen suchen.
+
+== Vorteile
+- Einfache und schnelle Buchhaltung von Einnahmen und Ausgaben
+- Zentrale Verwaltung von Mitgliederdaten und Inventar
+- Flexibilität durch benutzerdefinierte Tags für Mitglieder
+- Möglichkeit, Rechnungen hochzuladen und zu verwalten
+- Moderne und skalierbare Architektur für langfristige Nutzung
+
