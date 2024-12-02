@@ -1,0 +1,8 @@
+# Ignore everything
+/*
+
+# Except .adoc files
+!/*.adoc
+
+# Include .adoc files in subdirectories
+!**/*.adoc
