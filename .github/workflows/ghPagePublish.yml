@@ -20,15 +20,16 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v3
       
-    # Install Asciidoctor and the AsciiDoctor Diagram extension
-    - name: Install Asciidoctor and AsciiDoctor Diagram
+    # Install Asciidoctor, AsciiDoctor Diagram, and AsciiDoctor PlantUML
+    - name: Install Asciidoctor, AsciiDoctor Diagram, and AsciiDoctor PlantUML
       run: |
         sudo apt-get update
-        sudo apt-get install -y asciidoctor
+        sudo apt-get install -y asciidoctor plantuml
         sudo gem install asciidoctor-diagram
+        sudo gem install asciidoctor-plantuml  # Install the required gem
 
     # Includes the AsciiDoctor GitHub Pages Action to convert adoc files to html and publish to gh-pages branch
-    - name: asciidoctor-ghpages
+    - name: Build and Publish to GitHub Pages
       uses: manoelcampos/asciidoctor-ghpages-action@v2
       with:
         pdf_build: true
