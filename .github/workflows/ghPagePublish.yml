@@ -26,7 +26,22 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y asciidoctor plantuml
         sudo gem install asciidoctor-diagram
-        sudo gem install asciidoctor-plantuml  # Install the required gem
+        sudo gem install asciidoctor-plantuml --no-document  # Install the required gem
+
+    # Check if PlantUML is available in PATH
+    - name: Check if PlantUML is installed
+      run: |
+        plantuml -version
+
+    # Check installed gems to verify if asciidoctor-plantuml is installed
+    - name: Check installed gems
+      run: |
+        gem list
+
+    # Upgrade RubyGems (optional)
+    - name: Upgrade RubyGems
+      run: |
+        sudo gem update --system
 
     # Includes the AsciiDoctor GitHub Pages Action to convert adoc files to html and publish to gh-pages branch
     - name: Build and Publish to GitHub Pages
