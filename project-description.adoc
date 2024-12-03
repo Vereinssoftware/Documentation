@@ -37,3 +37,131 @@ Die Software richtet sich an Vereinsvorstände und Administratoren, die eine eff
 - Möglichkeit, Rechnungen hochzuladen und zu verwalten
 - Moderne und skalierbare Architektur für langfristige Nutzung
 
+== Datenmodell
+
+[plantuml, format="svg"]
+----
+@startuml
+entity Member {
+    - MemberID <PK>
+    - ReachabilityID <FK>
+    - SupervisorID <FK>
+    - AddressID <FK>
+    - FirstName
+    - LastName
+    - Active
+    - Gender
+    - Birthdate
+    - MemberSince
+    - MemberUntil
+    - CauseOfExit
+}
+
+entity Address {
+    - AddressID <PK>
+    - Street
+    - PLZ
+    - City
+}
+
+entity Supervisor {
+    - SupervisorID <PK>
+    - Function
+}
+
+entity Reachability {
+    - ReachabilityID <PK>
+    - Mobile
+    - Phone
+    - Email
+}
+
+entity MemberCategory {
+    - MemberID <PK> <FK>
+    - MemberTagID <PK> <FK>
+}
+
+entity Tag {
+    - TagID <PK>
+    - Label
+    - Color
+}
+
+entity MemberTag {
+    - MemberTagID <PK>
+    - TagID <FK>
+}
+
+entity AppointmentTag {
+    - AppointmentTagID <PK>
+    - TagID <FK>
+}
+
+entity IncomeOutcomeCalculationTag {
+    - IncomeOutcomeCalculationTagID <PK>
+    - TagID <FK>
+}
+
+entity MemberAppointment {
+    - MemberID <PK> <FK>
+    - AppointmentID <PK> <FK>
+}
+
+entity Appointment {
+    - AppointmentID <PK>
+    - AppointmentTagID <FK>
+    - Start
+    - End
+    - Title
+    - Description
+}
+
+entity Appointment_AppointmentTag {
+    - AppointmentID <PK> <FK>
+    - AppointmentTagID <PK> <FK>
+}
+
+entity Inventory {
+    - InventoryID <PK>
+    - SellerID <FK>
+    - Name
+    - Description
+    - Price
+    - Quantity
+}
+
+entity IncomeOutcomeCalculation {
+    - IncomeOutcomeCalculationID <PK>
+    - Tag <FK>
+    - Date
+    - Income
+    - Outcome
+    - Description
+    - Receipt
+}
+
+entity Seller {
+    - SellerID <PK>
+    - AddressID <FK>
+    - ReachabilityID <FK>
+    - Name
+}
+
+Member ||--o{ MemberCategory
+MemberCategory }o--|| MemberTag
+Member ||--o{ MemberAppointment
+MemberAppointment }o--|| Appointment
+Inventory }o--o| Seller
+Member |o--o{ Supervisor
+Member |o--o{ Reachability
+Member |o--o{ Address
+Seller |o--o{ Address
+Seller |o--o{ Reachability
+IncomeOutcomeCalculation |o--o{ IncomeOutcomeCalculationTag
+MemberTag }o--|| Tag
+AppointmentTag }o--|| Tag
+IncomeOutcomeCalculationTag }o--|| Tag
+Appointment ||--o{ Appointment_AppointmentTag
+AppointmentTag ||--o{ Appointment_AppointmentTag
+@enduml
+----
